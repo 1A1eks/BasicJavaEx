@@ -27,6 +27,7 @@ public class Sudoku {
         // Fill remaining blocks
         fillRemaining(0, SRN);
 
+        // printSudoku();
         // Remove randomly K digits to make it a puzzle
         removeKDigits();
     }
@@ -44,7 +45,7 @@ public class Sudoku {
     boolean unUsedInBox(int rowStart, int colStart, int num){
         for(int i = 0; i < SRN; i++){
             for(int j = 0; j < SRN; j++){
-                if (mat[rowStart + i][rowStart + j]==num){
+                if (mat[rowStart + i][colStart + j]==num){
                     return false;
                 }
             }
@@ -184,5 +185,10 @@ public class Sudoku {
         Sudoku sudoku = new Sudoku(N, K);
         sudoku.fillValues();
         sudoku.printSudoku();
+    }
+
+    // return value as matrix
+    public int[][] returnSudoku(){
+        return mat;
     }
 }
